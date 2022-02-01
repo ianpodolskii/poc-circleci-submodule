@@ -21,8 +21,10 @@ jobs:
           name: "Trigger poc-circleci project workflow"
           command: |
             curl --location --request POST 'https://circleci.com/api/v2/project/github/ianpodolskii/poc-circleci/pipeline' \
+            --header 'Accept: application/json' \
             --header 'Content-Type: application/json' \
-            -u "4f899e8a522a3e3f6f922690c55dcc26992f01fa"
+            --header 'Circle-Token: 4589dfc0c93bd505dd310350de0b61b7e59406dd' \
+            --data-raw '{ "branch": "main" }'
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
